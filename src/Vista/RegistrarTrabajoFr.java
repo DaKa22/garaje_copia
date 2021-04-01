@@ -243,13 +243,13 @@ System.exit(0);         // evento para salir
         VehiculoDAOMongo vDAO = new VehiculoDAOMongo();
         List<Vehiculo> list = vDAO.obtenerVehiculos();
         Iterator<Vehiculo> iter = list.iterator();
-        Vehiculo v = iter.next();
-         
-           /* do{
+        //Vehiculo v = new  Vehiculo();
+         Vehiculo v =iter.next();
+            while (!v.getPlaca().equals(categoria2)){
             
             v = iter.next();
             
-            }while (categoria2 != v.getPlaca());*/
+            }
             
             
 //                System.out.println(v.toString());
