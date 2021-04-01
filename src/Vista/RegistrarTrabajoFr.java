@@ -186,6 +186,7 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void TrabajocmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrabajocmbActionPerformed
