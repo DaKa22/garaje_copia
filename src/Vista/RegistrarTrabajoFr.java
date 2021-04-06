@@ -49,6 +49,8 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         Trabajocmb = new javax.swing.JComboBox<>();
         vehiculosCmb = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
@@ -61,8 +63,16 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
         BotonSalir = new javax.swing.JButton();
         Actualizar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        Trabajocmb.setBackground(new java.awt.Color(102, 255, 255));
+        Trabajocmb.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         Trabajocmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MECANICA", "LATONERIA", "REVISION" }));
         Trabajocmb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +80,8 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
             }
         });
 
+        vehiculosCmb.setBackground(new java.awt.Color(102, 255, 255));
+        vehiculosCmb.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         vehiculosCmb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vehiculosCmbActionPerformed(evt);
@@ -77,18 +89,20 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
         });
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel1.setText("Selelcio el tipo de trabajo");
+        jLabel1.setText("SELECCIONAR TIPO DE TRABAJO");
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("Selecione el Vehículo");
+        jLabel2.setText("SELECCIONAR VEHICULO");
 
         datos_trabajo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        datos_trabajo.setForeground(new java.awt.Color(0, 51, 51));
         datos_trabajo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        datos_trabajo.setText("Datos de Trabajo");
+        datos_trabajo.setText("    Datos de Trabajo");
         datos_trabajo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        datos_trabajo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         datos_trabajo.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
+        guardarTrabajoBtn.setBackground(new java.awt.Color(102, 255, 255));
+        guardarTrabajoBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         guardarTrabajoBtn.setText("Guardar");
         guardarTrabajoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,10 +111,13 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
         });
 
         texto1.setEditable(false);
+        texto1.setBackground(new java.awt.Color(204, 255, 255));
         texto1.setColumns(20);
         texto1.setRows(5);
         jScrollPane1.setViewportView(texto1);
 
+        BotonLimpiar.setBackground(new java.awt.Color(102, 255, 255));
+        BotonLimpiar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         BotonLimpiar.setText("Limpiar");
         BotonLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +125,8 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
             }
         });
 
+        BotonSalir.setBackground(new java.awt.Color(102, 255, 255));
+        BotonSalir.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         BotonSalir.setText("Salir");
         BotonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +134,8 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
             }
         });
 
+        Actualizar.setBackground(new java.awt.Color(102, 255, 255));
+        Actualizar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         Actualizar.setText("Actualizar");
         Actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,36 +147,38 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(vehiculosCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Trabajocmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel2)
-                .addGap(60, 60, 60)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(datos_trabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(Actualizar))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(guardarTrabajoBtn)
-                                .addGap(44, 44, 44)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(BotonLimpiar)
-                                .addGap(42, 42, 42)
-                                .addComponent(BotonSalir)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Actualizar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(93, 93, 93)
+                                .addComponent(BotonSalir)
+                                .addGap(42, 42, 42))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1)))
+                        .addGap(31, 31, 31))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(vehiculosCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Trabajocmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(178, 178, 178)
+                .addComponent(datos_trabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,21 +191,23 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(vehiculosCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Trabajocmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addComponent(datos_trabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
                         .addComponent(Actualizar)
-                        .addGap(50, 50, 50)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardarTrabajoBtn)
-                    .addComponent(BotonLimpiar)
-                    .addComponent(BotonSalir))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(50, 50, 50))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(datos_trabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(BotonLimpiar)
+                        .addComponent(BotonSalir))
+                    .addComponent(guardarTrabajoBtn))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -315,6 +340,8 @@ System.exit(0);         // evento para salir
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea texto1;
     private javax.swing.JComboBox<String> vehiculosCmb;
     // End of variables declaration//GEN-END:variables
