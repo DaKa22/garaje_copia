@@ -27,8 +27,7 @@ public class test_2 {
         //repmecanicadao.insertarRepMecanica(repmecanica1);
         //repmecanicadao.obtenerRepMecanica("ABC-123");
         //repmecanicadao.eliminarRepMecanica(repmecanica1);
-        v.setColors("rojo");
-        repmecanicadao.actualizarRepMecanica(repmecanica1);
+        repmecanicadao.obtenerRepMecanicas();
         //v.setMarca("renault");
         //vDAOMongo.actualizarVehiculo(v);
         //repmecanicadao.actualizarRepMecanica(repmecanica1);

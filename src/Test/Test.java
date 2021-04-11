@@ -5,7 +5,6 @@
 package Test;
 
 import Modelo.Propietario;
-import Modelo.Trabajos;
 import Modelo.Vehiculo;
 import dao.VehiculoDAO;
 import java.io.BufferedReader;
@@ -63,20 +62,14 @@ public class Test {
     //        //System.out.println(per.getNombre());
     //        System.out.println(v.toString());
     //    }
-   /* VehiculoDAO vDAO = new VehiculoDAO();
+    VehiculoDAO vDAO = new VehiculoDAO();
          try {
              Vehiculo v1 = vDAO.obtenerVehiculo("JY866");
              System.out.println(v1.toString());
          } catch (Exception e) {
              System.out.println("Vehiculo no existe");
          }
-     }*/
-  
-   Trabajos t = new Trabajos();
-         System.out.println( "ID:"+t.calcularIdTrabajo());
-         
-  }
+     }
 }
-
 
 
