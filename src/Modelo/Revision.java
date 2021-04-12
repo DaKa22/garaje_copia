@@ -14,9 +14,23 @@ public class Revision extends Trabajos {
     
     private int plazo;
     double Pago;
-    
+
     public Revision() {
     }
+
+    public Revision(int plazo, double Pago) {
+        this.plazo = plazo;
+        this.Pago = Pago;
+    }
+
+    public Revision(int id, String descripcion, int numHoras, String estado, int vrMaterial, double precioaCobrar, Vehiculo vehiculo,int plazo) {
+        super(id, descripcion, numHoras, estado, vrMaterial, precioaCobrar, vehiculo);
+        this.plazo= plazo;
+    }
+
+    
+    
+    
     
     public double CalcularPago(){
         precioaCobrar = precioaCobrar+200000;

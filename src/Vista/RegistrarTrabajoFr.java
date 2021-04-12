@@ -10,7 +10,9 @@ import Modelo.RepMecanica;
 import Modelo.Revision;
 import Modelo.Trabajos;
 import Modelo.Vehiculo;
+import dao.RepLatoneriaDAO;
 import dao.RepMecanicaDAO;
+import dao.RevisiónDAO;
 import dao.VehiculoDAOMongo;
 import iDAO.IRepMecanicaDAO;
 import java.util.Iterator;
@@ -254,34 +256,13 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
         String placa = (String) vehiculosCmb.getSelectedItem();
         VehiculoDAOMongo vDAO = new VehiculoDAOMongo();
         Vehiculo v= vDAO.obtenerVehiculo(placa);
-       /* List<Vehiculo> list = vDAO.obtenerVehiculos();
-        Iterator<Vehiculo> iter = list.iterator();
-        Vehiculo v = null;
-        Vehiculo v1 = new Vehiculo(null,null,null,null,0);
-        while (iter.hasNext()) {
-            v = iter.next();
-            if(categoria2 == v.getPlaca()){//profesor
-                
-            v1.setPlaca(v.getPlaca());
-            v1.setMarca(v.getMarca());
-            v1.setColors(v.getColors());
-            v1.setPropietario(v.getPropietario());
-            v1.setModelo(v.getModelo());
        
-        }
-//                System.out.println(v.toString());
-        }
-        */
        
          Trabajos t = new Trabajos();
          int id=t.calcularIdTrabajo();
         System.out.println("ID:" + t.calcularIdTrabajo());
 
-//crear los objetos para cada tipo de trabajo y guardarlos 
-        //RepMecanica repmecanica = new RepMecanica(2, categoria1, 40, "sin fallas", 5, 500000, v1, 10);
-        //RepMecanica repmecanica=null;
-        //RepLatoneria replatoneria = null;
-        //Revision revision = null; //borro esto 
+
         
         
        //crear los objetos para cada tipo de trabajo y guardarlos en la base de datos 
@@ -294,12 +275,24 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
             repmecanicadao.insertarRepMecanica(repmecanica);
        
        
-        }
-        /*else {if(categoria == "LATONERIA"){
-        this.insertarRepLatoneria(replatoneria);
-        }else{if(categoria == "REVISION"){
-        this.insertarRevision(revision);
-        }}}*/ //el prfe borro esto 
+        }else {if(categoria.compareTo("LATONERIA")==0)
+        {
+            
+            RepLatoneria replatoneria = new RepLatoneria(id, descripcionTA.getText(), 0, "ACTIVO", 0, 0, v, 0);
+            RepLatoneriaDAO replatoneriadao = new RepLatoneriaDAO();
+            replatoneriadao.insertarRepLatoneria(replatoneria);
+       
+       
+        }else{if(categoria.compareTo("REVISION")==0)
+        {
+            
+            Revision revision = new Revision(id, descripcionTA.getText(), 0, "ACTIVO", 0, 0, v, 0);
+            RevisiónDAO revisiondao = new RevisiónDAO();
+            revisiondao.insertarRevision(revision);
+       
+       
+        }}}
+       
         
     }//GEN-LAST:event_guardarTrabajoBtnActionPerformed
 
@@ -309,6 +302,7 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
 
     private void BotonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonLimpiarActionPerformed
       this.texto1.setText("");  // remplazo el texto con otro texto vacio para simular que se limpio el area de texto
+      this.descripcionTA.setText(""); // remplazo el texto con otro texto vacio para simular que se limpio el area de texto
     }//GEN-LAST:event_BotonLimpiarActionPerformed
 
     private void BotonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirActionPerformed
@@ -316,28 +310,47 @@ System.exit(0);         // evento para salir
     }//GEN-LAST:event_BotonSalirActionPerformed
 
     private void ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarActionPerformed
-      String categoria2 = (String) vehiculosCmb.getSelectedItem();
-      String categoria1 = (String) Trabajocmb.getSelectedItem();
-      
-      
+      String categoria = (String) Trabajocmb.getSelectedItem();
+        //obtener el objeto vehiculo de la base de datos 
+        String placa = (String) vehiculosCmb.getSelectedItem();
         VehiculoDAOMongo vDAO = new VehiculoDAOMongo();
-        List<Vehiculo> list = vDAO.obtenerVehiculos();
-        Iterator<Vehiculo> iter = list.iterator();
-        //Vehiculo v = new  Vehiculo();
-         Vehiculo v =iter.next();
-            while (!v.getPlaca().equals(categoria2)){
-            
-            v = iter.next();
-            
-            }
-            
-            
-//                System.out.println(v.toString());
+        Vehiculo v= vDAO.obtenerVehiculo(placa);
+       
+         Trabajos t = new Trabajos();
+         int id=t.calcularIdTrabajo();
+        System.out.println("ID:" + t.calcularIdTrabajo());
+       
+        //crear los objetos para cada tipo de trabajo y guardarlos en la base de datos 
         
-        
+        if(categoria.compareTo("MECANICA")==0)
+        {
             
-              this.texto1.setText("Tipo de Trabajo: "+categoria1+"\n Informacion del Vehiculo \nPlaca: "+v.getPlaca()+"\n Marca: "+v.getMarca()+"\n Color: "+v.getColors()+"\n Propietario: "+v.getPropietario()+"\n Modelo: "+v.getModelo());
+            RepMecanica repmecanica = new RepMecanica(id, descripcionTA.getText(), 0, "ACTIVO", 0, 0, v, 0);
+            this.texto1.setText("Tipo de Trabajo: "+categoria+"\nID: "+id+"\n Descripcion: "+descripcionTA.getText()+"\n Numero de Horas: "+repmecanica.getNumHoras()+"\n Estado: "+repmecanica.getEstado()+"\n Valor del Material: "+repmecanica.getVrMaterial()+"\n Precio a Cobrar: "+repmecanica.getPrecioaCobrar()+ "\n Informacion del Vehiculo \nPlaca: "+v.getPlaca()+"\n Marca: "+v.getMarca()+"\n Color: "+v.getColors()+"\n Propietario: "+v.getPropietario()+"\n Modelo: "+v.getModelo()+"\n Plazo: "+repmecanica.getPlazo());
 
+       
+       
+        }else {if(categoria.compareTo("LATONERIA")==0)
+        {
+            
+            RepLatoneria replatoneria = new RepLatoneria(id, descripcionTA.getText(), 0, "ACTIVO", 0, 0, v, 0);
+             this.texto1.setText("Tipo de Trabajo: "+categoria+"\nID: "+id+"\n Descripcion: "+descripcionTA.getText()+"\n Numero de Horas: "+replatoneria.getNumHoras()+"\n Estado: "+replatoneria.getEstado()+"\n Valor del Material: "+replatoneria.getVrMaterial()+"\n Precio a Cobrar: "+replatoneria.getPrecioaCobrar()+ "\n Informacion del Vehiculo \nPlaca: "+v.getPlaca()+"\n Marca: "+v.getMarca()+"\n Color: "+v.getColors()+"\n Propietario: "+v.getPropietario()+"\n Modelo: "+v.getModelo()+"\n Plazo: "+replatoneria.getPlazo());
+
+       
+       
+        }else{if(categoria.compareTo("REVISION")==0)
+        {
+            
+            Revision revision = new Revision(id, descripcionTA.getText(), 0, "ACTIVO", 0, 0, v, 0);
+            this.texto1.setText("Tipo de Trabajo: "+categoria+"\nID: "+id+"\n Descripcion: "+descripcionTA.getText()+"\n Numero de Horas: "+revision.getNumHoras()+"\n Estado: "+revision.getEstado()+"\n Valor del Material: "+revision.getVrMaterial()+"\n Precio a Cobrar: "+revision.getPrecioaCobrar()+ "\n Informacion del Vehiculo \nPlaca: "+v.getPlaca()+"\n Marca: "+v.getMarca()+"\n Color: "+v.getColors()+"\n Propietario: "+v.getPropietario()+"\n Modelo: "+v.getModelo()+"\n Plazo: "+revision.getPlazo());
+
+            
+       
+       
+        }}}
+        
+            
+              
             
        
         
